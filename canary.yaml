@@ -14,17 +14,17 @@ spec:
     spec:
       containers:
       - name: web
-        image: nginx
+        image: httpd
         ports:
         - containerPort: 80
-  revisionHistoryLimit: 3
+  revisionHistoryLimit: 4
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
       - setWeight: 10
-      - pause: { duration: 10 }  
+      - pause: { duration: 50 }  
       - setWeight: 30
       - pause: { duration: 10 }
       - setWeight: 50
