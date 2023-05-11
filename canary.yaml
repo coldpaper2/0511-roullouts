@@ -14,23 +14,23 @@ spec:
     spec:
       containers:
       - name: web
-        image: httpd
+        image: mhkim1560/canary-test:v1
         ports:
         - containerPort: 80
-  revisionHistoryLimit: 4
+  revisionHistoryLimit: 10
   strategy:
     canary: #Indicates that the rollout should use the Canary strategy
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
       - setWeight: 10
-      - pause: { duration: 50 }  
+      - pause: { duration: 30 }  
       - setWeight: 30
-      - pause: { duration: 10 }
+      - pause: { duration: 30 }
       - setWeight: 50
-      - pause: { duration: 10 }
+      - pause: { duration: 30 }
       - setWeight: 80
-      - pause: { duration: 10 } 
+      - pause: { duration: 30 } 
       
 ---
 
