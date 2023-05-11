@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: httpd
+        image: nginx
         ports:
         - containerPort: 80
   revisionHistoryLimit: 3
@@ -24,13 +24,13 @@ spec:
       maxUnavailable: 0
       steps:
       - setWeight: 10
-      - pause: { duration: 5 }  
+      - pause: { duration: 10 }  
       - setWeight: 30
-      - pause: { duration: 5 }
+      - pause: { duration: 10 }
       - setWeight: 50
-      - pause: { duration: 5 }
+      - pause: { duration: 10 }
       - setWeight: 80
-      - pause: { duration: 5 } 
+      - pause: { duration: 10 } 
       
 ---
 
